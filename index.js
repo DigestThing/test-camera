@@ -41,4 +41,4 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
   }
 })
 
-alert("asu")
+console.log(location)
