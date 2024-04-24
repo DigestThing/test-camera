@@ -20,25 +20,30 @@ const constraints = {
   },
 }
 
-navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-  streamingVideo.srcObject = stream
-  streamingVideo.play()
+// navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+//   // streamingVideo.srcObject = stream
+//   // streamingVideo.play()
 
-  const mediaRecorder = new MediaRecorder(stream)
+//   const mediaRecorder = new MediaRecorder(stream)
 
-  buttonStart.addEventListener("click", () => {
-    mediaRecorder.start()
-  })
+//   buttonStart.addEventListener("click", () => {
+//     mediaRecorder.start()
+//   })
 
-  buttonStop.addEventListener("click", () => {
-    mediaRecorder.stop()
-  })
+//   buttonStop.addEventListener("click", () => {
+//     mediaRecorder.stop()
+//   })
 
-  mediaRecorder.ondataavailable = (video) => {
-    console.log(video)
-    const urlVideo = URL.createObjectURL(video.data)
-    getVideo.src = urlVideo
-  }
-})
+//   mediaRecorder.ondataavailable = (video) => {
+//     console.log(video)
+//     const urlVideo = URL.createObjectURL(video.data)
+//     getVideo.src = urlVideo
+//   }
+// })
 
-document.querySelector("h1").innerHTML = JSON.stringify(location)
+console.log(navigator.userAgentData.brands[0])
+
+const dapat = navigator.userAgent
+const propherty = Object.getOwnPropertyNames(dapat)
+
+document.querySelector("h1").innerHTML = dapat
