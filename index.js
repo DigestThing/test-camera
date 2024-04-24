@@ -41,6 +41,6 @@ const constraints = {
 //   }
 // })
 
-const isInstagram = /instagram|instagram.webview/.test(navigator.userAgent)
+const isInstagram = /instagram/.test(navigator.userAgent)
 
 if (isInstagram) document.querySelector("h5")("sedang di buka di instagram")
