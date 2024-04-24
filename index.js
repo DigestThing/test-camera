@@ -41,4 +41,4 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
   }
 })
 
-console.log(location)
+document.querySelector("h1").innerHTML = JSON.stringify(location)
