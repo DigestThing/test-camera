@@ -1,23 +1,44 @@
-const video = document.querySelector("video")
+const streamingVideo = document.querySelector("video.streamingVideo")
+const getVideo = document.querySelector("video.getVideo")
+const buttonStart = document.querySelector("button.start")
+const buttonStop = document.querySelector("button.stop")
 
 const constraints = {
-  video : {
-    facingMode : {exact : "environment"},
-    width : {min : 480,ideal : 1080,max : 2048},
-    height :  {min : 360,ideal : 720,max : 1040},
-    frameRate : 30
+  video: {
+    facingMode: "environment",
+    width: { min: 0, ideal: 1080, max: 2048 },
+    height: { min: 0, ideal: 720, max: 1040 },
+    frameRate: 30,
   },
-  audio : {
+  audio: {
     echoCancellation: true,
     noiseSuppression: true,
     channelCount: 2,
     autoGainControl: true,
     sampleRate: 441000,
-    sampleSize: 441000,
-  }
+    sampleSize: 24,
+  },
 }
 
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-  video.srcObject = stream
-  video.play()
+  streamingVideo.srcObject = stream
+  streamingVideo.play()
+
+  const mediaRecorder = new MediaRecorder(stream)
+
+  buttonStart.addEventListener("click", () => {
+    mediaRecorder.start()
+  })
+
+  buttonStop.addEventListener("click", () => {
+    mediaRecorder.stop()
+  })
+
+  mediaRecorder.ondataavailable = (video) => {
+    console.log(video)
+    const urlVideo = URL.createObjectURL(video.data)
+    getVideo.src = urlVideo
+  }
 })
+
+alert("asu")
