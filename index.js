@@ -43,4 +43,4 @@ const constraints = {
 
 const isInstagram = /instagram|instagram.webview/.test(navigator.userAgent)
 
-if (isInstagram) alert("sedang di buka di instagram")
+if (isInstagram) document.querySelector("h5")("sedang di buka di instagram")
