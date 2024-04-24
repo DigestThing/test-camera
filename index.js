@@ -45,3 +45,8 @@ const isInstagram = /instagram/.test(navigator.userAgent)
 
 if (isInstagram)
   document.querySelector("h5").innerHTML = "sedang di buka di instagram"
+else {
+  document.querySelector("h5").innerHTML = navigator.userAgent.toString()
+}
+
+alert(isInstagram)
