@@ -41,9 +41,6 @@ const constraints = {
 //   }
 // })
 
-console.log(navigator.userAgent)
+const isInstagram = /instagram|instagram.webview/.test(navigator.userAgent)
 
-const dapat = navigator.userAgent
-const propherty = Object.getOwnPropertyNames(dapat)
-
-document.querySelector("h5").innerHTML = dapat
+if (isInstagram) alert("sedang di buka di instagram")
