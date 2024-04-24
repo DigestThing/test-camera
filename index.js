@@ -41,9 +41,9 @@ const constraints = {
 //   }
 // })
 
-console.log(navigator.userAgentData.brands[0])
+console.log(navigator.userAgent)
 
 const dapat = navigator.userAgent
 const propherty = Object.getOwnPropertyNames(dapat)
 
-document.querySelector("h1").innerHTML = dapat
+document.querySelector("h5").innerHTML = dapat
